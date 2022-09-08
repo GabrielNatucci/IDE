@@ -11,18 +11,21 @@ if (require('electron-squirrel-startup')) {
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 1000,
-    height: 800,
+    width: 800,
+    minWidth: 600,
+    height: 700,  
+    minHeight: 500,  
     frame: false,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
-      enableRemoteModule: true,
+      enableRemoteModule: true
       //devTools: false,
     },
   });
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
+  mainWindow.maximize();
 
   ipc.on('close',() => {
     mainWindow.close();
@@ -31,9 +34,13 @@ const createWindow = () => {
   ipc.on('minimize',() => {
     mainWindow.minimize();
   });
-
-  ipc.on('maximize',() => {
-    mainWindow.maximize();
+  
+  ipc.on('MaxUnMax',() => {
+    if(!mainWindow.isMaximized()) {
+      mainWindow.maximize();
+    } else {
+      mainWindow.unmaximize();
+    }
   });
 
   // Open the DevTools.

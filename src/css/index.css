@@ -7,26 +7,44 @@ body {
   user-select: none;
   padding: 0;
   margin: 0;
-  background-color: rgb(30,30,30);
+  background-color: rgb(20, 20, 20);
   color: white;
 }
 
 header{
+  width: 100%;
   display: flex;
   justify-content: space-between;
+  /* padding: 2px 0; */
   align-items: center;
-  margin-left: 10px;
+  /* margin-left: 10px; */
   -webkit-app-region: drag;
+  background-color: rgb(32, 32, 32);
+}
+
+.nome-arquivo{
+  position: absolute; 
+  left: 0; 
+  right: 0; 
+  margin: 0 auto;
+  width: 300px;
+  text-align: center;
+}
+
+.logo{
+  padding: 0 0 0 16px;
 }
 
 .header-btn{
-  padding: 5px 15px;
+  padding: 8px 20px;
   border: none;
   background-color: inherit;
   color: inherit;
   -webkit-app-region: none;
+  transition: 0.2s;
 }
 
 .header-btn:hover {
+  transition: 0.2s;
   background-color: rgb(50, 50, 50);
 }
